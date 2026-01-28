@@ -3,10 +3,10 @@
 A small data pipeline that pulls public campaign finance data from the FEC API, cleans it, stores it, and serves a simple dashboard.
 
 ## Stack
-- Backend: Python (FastAPI later)
+- Backend: Python (FastAPI)
 - Data Source: FEC API
-- DB: Postgres (later)
-- Frontend: HTML/CSS/JS (later)
+- DB: Postgres 
+- Frontend: HTML/CSS/JS (Vanilla)
 
 ## Progress
 - [ ] Hour 1: Repo + FEC API key + test fetch
