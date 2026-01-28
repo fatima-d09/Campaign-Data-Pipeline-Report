@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campaign Data Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Campaign Data Dashboard</h1>
+      <p>FEC committees: receipts, spending, cash on hand, and debt.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="row">
+        <div class="col">
+          <label for="cycle">Cycle</label>
+          <input id="cycle" type="number" value="2024" min="1976" step="2" />
+        </div>
+
+        <div class="col">
+          <label for="limit">Top N</label>
+          <input id="limit" type="number" value="25" min="1" max="200" />
+        </div>
+
+        <div class="col wide">
+          <label for="apiBase">API Base URL</label>
+          <input id="apiBase" type="text" value="http://127.0.0.1:8000" />
+          <small class="hint">When deployed, set this to your Render/Railway backend URL.</small>
+        </div>
+
+        <div class="col">
+          <button id="loadTopBtn" class="btn">Load Top Committees</button>
+        </div>
+      </div>
+
+      <div class="status" id="topStatus"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Committee</th>
+              <th>Party</th>
+              <th>State</th>
+              <th class="num">Receipts</th>
+              <th class="num">Disbursements</th>
+              <th class="num">Cash (End)</th>
+              <th class="num">Debt</th>
+            </tr>
+          </thead>
+          <tbody id="topTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <div class="col wide">
+          <label for="searchQ">Search committees</label>
+          <input id="searchQ" type="text" placeholder="Try: TRUMP, BIDEN, DNC, RNC..." />
+        </div>
+        <div class="col">
+          <button id="searchBtn" class="btn secondary">Search</button>
+        </div>
+      </div>
+
+      <div class="status" id="searchStatus"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Committee</th>
+              <th>Party</th>
+              <th>Type</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody id="searchTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="detailCard">
+      <div class="detail-header">
+        <div>
+          <h2 id="detailName">Select a committee</h2>
+          <p class="muted" id="detailMeta">Click a row from Top or Search.</p>
+        </div>
+        <div class="badge" id="detailCycle">Cycle: —</div>
+      </div>
+
+      <div class="grid">
+        <div class="metric">
+          <div class="label">Receipts</div>
+          <div class="value" id="mReceipts">—</div>
+        </div>
+        <div class="metric">
+          <div class="label">Disbursements</div>
+          <div class="value" id="mDisbursements">—</div>
+        </div>
+        <div class="metric">
+          <div class="label">Cash on Hand (End)</div>
+          <div class="value" id="mCash">—</div>
+        </div>
+        <div class="metric">
+          <div class="label">Debt</div>
+          <div class="value" id="mDebt">—</div>
+        </div>
+      </div>
+
+      <div class="status" id="detailStatus"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>Data source: FEC API · Built with FastAPI + Postgres + vanilla JS</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
