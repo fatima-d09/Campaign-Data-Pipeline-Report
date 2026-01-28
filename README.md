@@ -15,3 +15,7 @@ A small data pipeline that pulls public campaign finance data from the FEC API, 
 - [ ] Hour 4: API endpoints
 - [ ] Hour 5: Dashboard UI
 - [ ] Deploy
+
+## Dashboard
+<img width="577" height="381" alt="image" src="https://github.com/user-attachments/assets/da99fd4f-3825-4423-9592-b1b5f7cb802d" />
+
