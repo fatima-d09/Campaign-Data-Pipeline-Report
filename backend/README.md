@@ -13,14 +13,14 @@ This backend service ingests public campaign finance data from the Federal Elect
 ---
 
 ## Architecture Overview
-FEC API
-↓
-Ingestion Pipeline (Python)
-↓
-PostgreSQL
-↓
-FastAPI REST Endpoints
-↓
+FEC API<br>
+↓<br>
+Ingestion Pipeline (Python)<br>
+↓<br>
+PostgreSQL<br>
+↓<br>
+FastAPI REST Endpoints<br>
+↓<br>
 Frontend Dashboard (HTML/CSS/JS)
 
 ---
